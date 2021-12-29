@@ -56,6 +56,8 @@ Kirigami.ScrollablePage {
         function onIncomingMessage(accountId, chatId, msgId) {
             updateMessagelist();
             console.log("Incoming message for chat " + chatId);
+            if(!chat.muted || chatId != 0 || chatId != root.chatId)
+                chat.notifyNewMess();
         }
 
         function onMessagesChanged(accountId, chatId, msgId) {

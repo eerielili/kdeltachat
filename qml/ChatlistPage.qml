@@ -63,6 +63,7 @@ Kirigami.ScrollablePage {
                 "avatarSource": profileImage ? "file:" + profileImage : "",
                 "chatName": chat.name,
                 "freshMsgCnt": chatlistPage.context.getFreshMsgCnt(chatId),
+                "isMuted" : chat.muted,
                 "isContactRequest": chat.isContactRequest,
                 "visibility": chat.visibility
             };
@@ -149,6 +150,8 @@ Kirigami.ScrollablePage {
             username: model.username
             freshMsgCnt: model.freshMsgCnt
             isContactRequest: model.isContactRequest
+            isMuted: model.isMuted
+            visibility: model.visibility
             isPinned: model.visibility == 2
             width: chatlist.width
             onClicked: chatClicked(model.chatId)

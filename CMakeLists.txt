@@ -55,6 +55,7 @@ add_executable(
 
 find_package(Threads REQUIRED)
 find_package(KF5Kirigami2 REQUIRED)
+find_package(KF5Notifications REQUIRED)
 pkg_check_modules(DeltaChat IMPORTED_TARGET deltachat)
 
 target_compile_definitions(
@@ -66,8 +67,7 @@ target_link_libraries(
   Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::WebEngine
   PRIVATE Threads::Threads
   PRIVATE KF5::Kirigami2
+  PRIVATE KF5::Notifications
   PRIVATE PkgConfig::DeltaChat m dl)
 
 install(TARGETS kdeltachat ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
-
-add_subdirectory(res)

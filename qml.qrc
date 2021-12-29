@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
+        <file>qtquickcontrols2.conf</file>
         <file>qml/main.qml</file>
         <file>qml/AccountsPage.qml</file>
         <file>qml/ChatPage.qml</file>
@@ -11,6 +12,8 @@
         <file>qml/ComposePane.qml</file>
         <file>qml/HtmlViewSheet.qml</file>
         <file>qml/NewChatPage.qml</file>
-        <file>qtquickcontrols2.conf</file>
+        <file>knotifications5/kdeltachat.notifyrc</file>
+        <file>res/pin_48x48.png</file>
+        <file>res/muted_48x48.png</file>
     </qresource>
 </RCC>

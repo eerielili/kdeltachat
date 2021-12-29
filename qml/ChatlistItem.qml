@@ -14,8 +14,10 @@ Kirigami.AbstractListItem {
     property string avatarSource
     property string username
     property int freshMsgCnt
+    property int visibility
     property bool isContactRequest
     property bool isPinned
+    property bool isMuted
 
     RowLayout {
         Kirigami.Avatar {
@@ -34,6 +36,16 @@ Kirigami.AbstractListItem {
 
                 Menu {
                     id: contextMenu
+                    
+                    Action {
+                      text: !root.isMuted ? "Mute chat" : "Unmute chat"
+                      onTriggered: {
+                          if (!root.isMuted)
+                            root.context.setChatMuteDuration(root.chatId, -1)
+                          else
+                            root.context.setChatMuteDuration(root.chatId, 0)
+                      }
+                    }
 
                     Action {
                         text: "Block chat"
@@ -46,23 +58,13 @@ Kirigami.AbstractListItem {
 
                     Action {
                         icon.name: "pin"
-                        text: "Pin chat"
-                        onTriggered: root.context.setChatVisibility(root.chatId, 2)
+                        text: !root.isPinned ? "Pin chat" : "Unpin chat"
+                        onTriggered: !root.isPinned ? root.context.setChatVisibility(root.chatId, 2) : root.context.setChatVisibility(root.chatId, 0)
                     }
 
                     Action {
-                        text: "Unpin chat"
-                        onTriggered: root.context.setChatVisibility(root.chatId, 0)
-                    }
-
-                    Action {
-                        text: "Archive chat"
-                        onTriggered: root.context.setChatVisibility(root.chatId, 1)
-                    }
-
-                    Action {
-                        text: "Unarchive chat"
-                        onTriggered: root.context.setChatVisibility(root.chatId, 0)
+                        text: root.visibility != 1 ? "Archive chat" : "Unarchive chat"
+                        onTriggered: root.visibility != 1 ? root.context.setChatVisibility(root.chatId, 1) : root.context.setChatVisibility(root.chatId, 0)
                     }
 
                     Action {
@@ -111,13 +113,26 @@ Kirigami.AbstractListItem {
 
         }
 
-        // Pinned message badge
-        Label {
+        // Twemoji
+        // Copyright 2020 Twitter, Inc and other contributors.
+        // Muted chat badge
+        Image {
+            visible: root.isMuted
+            source: "qrc:/res/muted_48x48.png"
+            sourceSize.width: 24
+            sourceSize.height: 24
+            Layout.bottomMargin: 13
+        }
+
+        // Twemoji
+        // Copyright 2020 Twitter, Inc and other contributors.
+        // Pinned chat badge
+        Image {
             visible: root.isPinned
-            text: "📌"
-            font.pixelSize: 20
-            rightPadding: 15
-            bottomPadding: 15
+            source: "qrc:/res/pin_48x48.png"
+            sourceSize.width: 24
+            sourceSize.height: 24
+            Layout.bottomMargin: 13
         }
 
     }

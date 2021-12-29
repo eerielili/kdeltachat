@@ -76,3 +76,15 @@ DcChat::getVisibility()
 {
     return dc_chat_get_visibility(m_chat);
 }
+
+void
+DcChat::notifyNewMess()
+{
+   KNotification *newMess = new KNotification("onIncomingMessage");
+   newMess->setPixmap(QPixmap(getProfileImage()));
+   newMess->setIconName("chat.delta.KDeltaChat");
+   newMess->setComponentName("kdeltachat");
+   newMess->setTitle(getName());
+   newMess->setText("has sent you a message");
+   newMess->sendEvent();
+}

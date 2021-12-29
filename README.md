@@ -156,6 +156,10 @@ icon theme for Qt 5 there and set `QT_QPA_PLATFORMTHEME=qt5ct` or
 Setting `XDG_CURRENT_DESKTOP=GNOME` environment variable has also been reported
 to help in this case. This results in usage of Adwaita icon theme.
 
+# Credits
+
+The pinned and muted chat icons are converted to PNG from the [Twemoji](https://twemoji.twitter.com/) font. Licensed under [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) - Copyright 2020 Twitter, Inc and other contributors.
+
 # License
 
 This program is free software: you can redistribute it and/or modify

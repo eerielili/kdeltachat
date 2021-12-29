@@ -51,7 +51,7 @@ public:
     QString getBlobdir();
     Q_INVOKABLE bool setConfig(QString key, QString value);
     Q_INVOKABLE QString getConfig(QString key);
-    Q_INVOKABLE bool setChatMuteDuration(uint32_t chatId, int64_t duration);
+    Q_INVOKABLE bool setChatMuteDuration(uint32_t chatId, int duration);
     Q_INVOKABLE QString getMessageInfo(uint32_t msgId);
     Q_INVOKABLE QString getMessageHtml(uint32_t msgId);
     Q_INVOKABLE DcMessage *newMessage(int viewtype);

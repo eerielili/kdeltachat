@@ -2,6 +2,9 @@
 
 #include <QObject>
 #include <QColor>
+#include <QPixmap>
+
+#include <KNotification>
 
 #include <deltachat.h>
 
@@ -28,6 +31,7 @@ public:
     Q_INVOKABLE bool canSend();
     Q_INVOKABLE bool isMuted();
     Q_INVOKABLE int getVisibility();
+    Q_INVOKABLE void notifyNewMess();
 
 private:
     dc_chat_t *m_chat{nullptr};

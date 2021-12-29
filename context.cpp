@@ -282,7 +282,7 @@ Context::getDraft(uint32_t chatId)
 }
 
 bool
-Context::setChatMuteDuration(uint32_t chatId, int64_t duration)
+Context::setChatMuteDuration(uint32_t chatId, int duration)
 {
     return dc_set_chat_mute_duration(m_context, chatId, duration);
 }
