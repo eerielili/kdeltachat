@@ -160,6 +160,10 @@ to help in this case. This results in usage of Adwaita icon theme.
 
 The pinned and muted chat icons are converted to PNG from the [Twemoji](https://twemoji.twitter.com/) font. Licensed under [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) - Copyright 2020 Twitter, Inc and other contributors.
 
+The incoming message notification sound, `incomingmessage.ogg`, is a .wav file made by [BeezleFM](https://freesound.org/people/BeezleFM/sounds/512136/) and then converted to .ogg through ffmpeg. Original title is 'Notification Sound'.
+Licensed under [CC-BY 3.0](http://creativecommons.org/licenses/by/3.0/).
+Copyright 2020 BeezleFM at freesound.org.
+
 # License
 
 This program is free software: you can redistribute it and/or modify

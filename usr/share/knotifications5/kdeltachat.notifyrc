@@ -1,0 +1,18 @@
+[Global]
+IconName=chat.delta.KDeltaChat
+Name=KDeltaChat
+Comment=KDeltaChat
+DesktopEntry=chat.delta.KDeltaChat
+
+[Event/onIncomingMessage]
+Name=New Message
+Comment=You have got a new message
+Contexts=none
+Sound=kdeltachat/incomingmessage.ogg
+Action=Popup|Sound
+
+[Event/workMode]
+Name=Working offline
+Comment=Switch to offline mode
+Contexts=none
+Action=Popup

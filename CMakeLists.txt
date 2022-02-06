@@ -37,6 +37,7 @@ ecm_find_qmlmodule(org.kde.kirigami 2.12)
 #
 # See https://doc.qt.io/qt-5/qtquick-deployment.html#ahead-of-time-compilation
 find_package(Qt5QuickCompiler REQUIRED)
+find_package(KF5Notifications REQUIRED)
 qtquick_compiler_add_resources(KDELTACHAT_QML_QRC qml.qrc)
 
 add_executable(
@@ -48,6 +49,7 @@ add_executable(
   chatlist.cpp
   contact.cpp
   chat.cpp
+  notifications.cpp
   eventemitter.cpp
   lot.cpp
   dcevent.cpp
@@ -55,7 +57,6 @@ add_executable(
 
 find_package(Threads REQUIRED)
 find_package(KF5Kirigami2 REQUIRED)
-find_package(KF5Notifications REQUIRED)
 pkg_check_modules(DeltaChat IMPORTED_TARGET deltachat)
 
 target_compile_definitions(

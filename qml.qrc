@@ -15,5 +15,6 @@
         <file>knotifications5/kdeltachat.notifyrc</file>
         <file>res/pin_48x48.png</file>
         <file>res/muted_48x48.png</file>
+        <file>res/chat.delta.KDeltaChat.png</file>
     </qresource>
 </RCC>

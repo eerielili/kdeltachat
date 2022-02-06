@@ -2,6 +2,7 @@
 #include <QQmlApplicationEngine>
 #include <QMetaType>
 #include <QtWebEngine>
+//#include <QScopedPointer>
 
 #include "accounts.h"
 #include "message.h"
@@ -10,6 +11,7 @@
 #include "context.h"
 #include "contact.h"
 #include "eventemitter.h"
+#include "notifications.h"
 
 int main(int argc, char *argv[])
 {
@@ -52,15 +54,22 @@ int main(int argc, char *argv[])
       {
         QCoreApplication::exit(-1);
       }
+    if (qmlRegisterType<DcNotifications>("DcNotifications", 1, 0, "DcNotifications") == -1)
+      {
+        QCoreApplication::exit(-1);
+      }
     if (qmlRegisterType<DcAccountsEventEmitter>("DeltaChat", 1, 0, "DcAccountsEventEmitter") == -1)
       {
         QCoreApplication::exit(-1);
       }
+
+    DcNotifications* KNotif = new DcNotifications();
     qRegisterMetaType<size_t>("size_t");
     qRegisterMetaType<uint32_t>("uint32_t");
     qRegisterMetaType<QVector<uint32_t>>("QVector<uint32_t>");
 
     QQmlApplicationEngine engine;
+    engine.rootContext()->setContextProperty("KNotif", KNotif);
     const QUrl url(QStringLiteral("qrc:/qml/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {
