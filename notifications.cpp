@@ -18,4 +18,3 @@ DcNotifications::send(QString event, QString pfpPath, QString title, QString mes
    newMess->sendEvent();
 
 }
-//newMess->setPixmap(QPixmap(":/res/chat.delta.KDeltaChat.png"));
