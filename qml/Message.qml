@@ -86,6 +86,7 @@ RowLayout {
     Rectangle {
         id: msgRect
         Layout.leftMargin: Kirigami.Units.largeSpacing
+        Layout.rightMargin: 2*Kirigami.Units.largeSpacing
         Layout.preferredWidth: messageContents.width
         Layout.preferredHeight: messageContents.height
         color: Kirigami.Theme.backgroundColor
