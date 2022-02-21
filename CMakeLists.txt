@@ -71,4 +71,10 @@ target_link_libraries(
   PRIVATE KF5::Notifications
   PRIVATE PkgConfig::DeltaChat m dl)
 
+file(MAKE_DIRECTORY /usr/share/applications /usr/share/icons /usr/share/knotifications5 /usr/share/sounds/kdeltachat /usr/share/icons/hicolor/256x256/)
+file(COPY usr/share/applications/chat.delta.KDeltaChat.desktop DESTINATION /usr/share/applications/)
+file(COPY usr/share/sounds/kdeltachat/incomingmessage.ogg DESTINATION /usr/share/sounds/kdeltachat/)
+file(COPY usr/share/knotifications5/kdeltachat.notifyrc DESTINATION /usr/share/knotifications5/)
+file(COPY usr/share/icons/hicolor/256x256/chat.delta.KDeltaChat.png DESTINATION /usr/share/icons/hicolor/256x256/)
+#file(COPY_FILE ONLY_IS_DIFFERENT)
 install(TARGETS kdeltachat ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
