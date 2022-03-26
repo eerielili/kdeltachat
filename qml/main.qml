@@ -2,6 +2,7 @@ import DeltaChat 1.0
 import QtQuick 2.12
 import QtQuick.Controls 2.12 as Controls
 import org.kde.kirigami 2.12 as Kirigami
+import DcNotifications 1.0
 
 Kirigami.ApplicationWindow {
     id: root
@@ -92,40 +93,13 @@ Kirigami.ApplicationWindow {
     }
 
     Controls.Popup {
-        id: workNetwNotif
-
-        modal: false
-        focus: activeFocus ? false : false
-        dim: false
-        width: 150
-        height: 50
-        x: Math.round((parent.width - width) / 2)
-        padding: 10
-        contentChildren: [
-            Text {
-                text: "Network status :"
-                bottomPadding: 10
-                font.bold: true
-                font.pixelSize: 14
-            },
-            Text {
-                text: offlineSwitch.checked ? "We can work offline now." : "We can work online now."
-                font.pixelSize: 9
-                topPadding: 20
-                leftPadding: 10
-                bottomPadding: 20
-            }
-        ]
-    }
-
-    Controls.Popup {
         id: helpPopup
 
         modal: true
         focus: true
         anchors.centerIn: parent
         width: 200
-        height: 230
+        height: 260
         padding: 10
         contentChildren: [
             Text {
@@ -200,14 +174,12 @@ Kirigami.ApplicationWindow {
                     if (offlineSwitch.state == "on") {
                         offlineSwitch.checked = false;
                         offlineSwitch.state = "off";
-                        workNetwNotif.close();
-                        workNetwNotif.open();
+                        KNotif.send("workMode", ":/res/chat.delta.KDeltaChat.png", "KDeltaChat - Working online", "Switching to online mode...");
                         console.log("Work online");
                     } else {
                         offlineSwitch.checked = true;
                         offlineSwitch.state = "on";
-                        workNetwNotif.close();
-                        workNetwNotif.open();
+                       KNotif.send("workMode", ":/res/chat.delta.KDeltaChat.png", "KDeltaChat - Working offline", "Switching to offline mode...");
                         console.log("Work offline");
                     }
                 }
